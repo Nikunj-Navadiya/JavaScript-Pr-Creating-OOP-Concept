@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+    class BankAccount {
+        constructor(accountNumber, balance = 0) {
+            this.accountNumber = accountNumber;
+            this.balance = balance;
+        }
+
+        deposit(amount) {
+            if (amount > 0) {
+                this.balance = this.balance + amount;
+                console.log(`Deposited: ${amount}`);
+            } else {
+                console.log("Invalid deposit amount. Please enter a positive value.");
+            }
+        }
+
+        withdraw(amount) {
+            if (amount > 0 && amount <= this.balance) {
+                this.balance = this.balance - amount;
+                console.log(`Withdrawn: ${amount}`);
+            } else {
+                console.log("Insufficient balance or invalid withdrawal amount.");
+            }
+        }
+
+        displayDetails() {
+            console.log(`A/c No.: ${this.accountNumber}`);
+            console.log(`Opening Balance: ${this.balance}`);
+        }
+    }
+
+    const Number = parseInt(prompt("Enter Account Number :- "));
+    const Balance = parseInt(prompt("Enter Balance Number :- "));
+    const account = new BankAccount(Number, Balance);
+    account.displayDetails();
+
+    const depositbalabce = parseInt(prompt("Enter Deposit Number :- "));
+    account.deposit(depositbalabce);
+
+    const withdrawbalance = parseInt(prompt("Enter Withdraw Number :- "));
+    account.withdraw(withdrawbalance);
+
+    console.log(`Account Balance: ${account.balance}`);
+
+</script>
